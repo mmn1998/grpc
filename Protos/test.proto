@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option csharp_namespace = "Test";
+
+package test;
+
+
+service SumService {
+	//unary
+	rpc Sum (SumRequest) returns (SumResponse) {};
+}
+
+message SumRequest {
+	int32 a = 1;
+	int32 b = 2;
+}
+message SumResponse {
+	int32 result = 1;
+}
+

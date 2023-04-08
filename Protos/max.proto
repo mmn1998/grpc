@@ -1,0 +1,14 @@
+﻿syntax = "proto3";
+
+package max;
+
+message FindMaxRequest {
+	int32 number = 1;
+}
+message FindMaxResponse {
+	int32 max = 1;
+}
+service FindMaxService {
+	//bi
+	rpc FindMax (stream FindMaxRequest) returns (stream FindMaxResponse){}
+}
