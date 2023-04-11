@@ -6,6 +6,24 @@
 		<ImplicitUsings>disable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="ca.crt" />
+	  <None Remove="client.crt" />
+	  <None Remove="client.key" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="ca.crt">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="client.crt">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="client.key">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </EmbeddedResource>
+	</ItemGroup>
 	<ItemGroup>
 		<Protobuf Include="..\..\Protos\greet.proto" GrpcServices="Client" />
 		<Protobuf Include="..\..\Protos\test.proto" GrpcServices="Client" />

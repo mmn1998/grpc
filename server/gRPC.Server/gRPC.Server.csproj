@@ -7,6 +7,24 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <None Remove="ca.crt" />
+	  <None Remove="server.crt" />
+	  <None Remove="server.key" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="ca.crt">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="server.crt">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="server.key">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
 		<Protobuf Include="..\..\Protos\greet.proto" GrpcServices="Server" />
 		<Protobuf Include="..\..\Protos\test.proto" GrpcServices="Server" />
 		<Protobuf Include="..\..\Protos\greeting.proto" GrpcServices="Server" />
@@ -16,6 +34,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="Grpc.AspNetCore" Version="2.40.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.Certificate" Version="6.0.15" />
 	</ItemGroup>
 
 

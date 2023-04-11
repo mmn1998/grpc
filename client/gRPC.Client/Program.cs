@@ -1,5 +1,8 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System;
+using System.IO;
+using System.Net.Http;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using Greet;
 using Greeting;
@@ -10,7 +13,23 @@ using Prime;
 using Test;
 
 // The port number must match the port of the gRPC server.
-using var channel = GrpcChannel.ForAddress("https://localhost:7095");
+
+string BaseSSlAddress = "..\\..\\..\\..\\ssl/";
+string clientCert = File.ReadAllText(BaseSSlAddress + "client.crt");
+string clientKey = File.ReadAllText(BaseSSlAddress + "client.key");
+string caCert = File.ReadAllText(BaseSSlAddress + "ca.crt");
+
+var cert = new X509Certificate2(BaseSSlAddress + "ca.crt");
+
+var handler = new HttpClientHandler();
+handler.ClientCertificates.Add(cert);
+var httpClient = new HttpClient(handler);
+GrpcChannelOptions GrpcChannelOptions = new GrpcChannelOptions
+{
+    //Credentials = new SslCredentials(caCert, new KeyCertificatePair(clientCert, clientKey)),
+    HttpClient = httpClient
+};
+using var channel = GrpcChannel.ForAddress("https://localhost:7153", GrpcChannelOptions);
 #region uni
 var client1 = new Greeter.GreeterClient(channel);
 var reply = await client1.SayHelloAsync(

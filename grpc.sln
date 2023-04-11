@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gRPC.Client", "client\gRPC.Client\gRPC.Client.csproj", "{3E391047-D25F-4FAD-9C73-757EF8F2ABAD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gRPC.Client", "client\gRPC.Client\gRPC.Client.csproj", "{3E391047-D25F-4FAD-9C73-757EF8F2ABAD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gRPC.Server", "server\gRPC.Server\gRPC.Server.csproj", "{12720A4F-85F8-4A50-90AB-C60BB07D4F5A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gRPC.Server", "server\gRPC.Server\gRPC.Server.csproj", "{12720A4F-85F8-4A50-90AB-C60BB07D4F5A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Protos", "Protos", "{EA1435BE-ED15-42A6-8B52-6C79EDA04996}"
 	ProjectSection(SolutionItems) = preProject
